@@ -5,6 +5,7 @@ import org.springframework.boot.runApplication
 import org.springframework.context.annotation.Bean
 import org.springframework.context.support.ResourceBundleMessageSource
 import org.springframework.web.servlet.LocaleResolver
+import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver
 import org.springframework.web.servlet.i18n.SessionLocaleResolver
 import java.util.*
 
@@ -12,11 +13,13 @@ import java.util.*
 class SpringapiApplication{
     @Bean
     fun localeResolver():LocaleResolver{
-        val localeResolver = SessionLocaleResolver()
-        localeResolver.setDefaultLocale(Locale.US)
+//        val localeResolver = SessionLocaleResolver()
+        val localeResolver = AcceptHeaderLocaleResolver()
+        localeResolver.defaultLocale = Locale.US
         return localeResolver
     }
 
+    //
     @Bean
     fun bundleMessageSource():ResourceBundleMessageSource{
         val messageSource = ResourceBundleMessageSource()

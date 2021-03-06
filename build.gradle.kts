@@ -8,23 +8,30 @@ plugins {
     kotlin("plugin.jpa") version "1.4.30"
 }
 
+
 group = "com.cbx"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 dependencies {
 
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-hateoas")
+    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-xml")
+    implementation ("org.springframework.data:spring-data-rest-hal-explorer")
+    implementation ("io.springfox:springfox-boot-starter:3.0.0")
+    compile ("io.springfox:springfox-swagger-ui:3.0.0")
 
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     runtimeOnly("com.h2database:h2")
